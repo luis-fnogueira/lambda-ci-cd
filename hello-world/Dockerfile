@@ -11,7 +11,7 @@ RUN pip install -r requirements.txt
 COPY app.py  .
 
 # Copy the lib directory if you have one
-#COPY lib/ ./lib 
+#COPY lib/ ./lib  
 
 # Set the CMD to your handler (could also be done as a parameter override outside of the Dockerfile)
 CMD [ "app.lambda_handler" ]
