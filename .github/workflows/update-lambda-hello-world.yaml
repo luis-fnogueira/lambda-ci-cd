@@ -2,8 +2,9 @@ name: Deploy and update Lambda
 
 on:
   pull_request:
-    branches:
-      - 'main'
+    branches: 
+      - main
+    types: [closed]
     paths:
       - $FUNCTION_NAME
 
@@ -14,9 +15,11 @@ env:
   IMAGE_URI: "903442739132.dkr.ecr.us-east-1.amazonaws.com/hello-world"
 
 jobs:
-  deploy:
-    name: Deploy
+
+  if_merged:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    name: Deploy
     environment: production
 
     steps:
