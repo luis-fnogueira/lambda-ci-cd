@@ -6,8 +6,8 @@ on:
       - main
     types: [closed]
     paths:
-      - hello-world/
-
+      - hello-world/**
+    
 env:
   AWS_REGION: us-east-1 
   ECR_REPOSITORY: hello-world   
