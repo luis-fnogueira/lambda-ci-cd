@@ -7,7 +7,7 @@ on:
     types: [closed]
     paths:
       - hello-world/**
-    
+
 env:
   AWS_REGION: us-east-1 
   ECR_REPOSITORY: hello-world   
@@ -37,7 +37,7 @@ jobs:
          uses: aws-actions/amazon-ecr-login@v2
  
        - name: Build, tag, and push image to Amazon ECR
-         uses: docker/build-push-action@v5
+         working-directory: hello-world
          id: build-image
          env:
            ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
@@ -47,8 +47,7 @@ jobs:
            docker tag hello-world:$IMAGE_TAG $IMAGE_URI:$IMAGE_TAG
            docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
            echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
-         with:
-           context: .
+
  
        - name: Update Lambda
          id: update-lambda
