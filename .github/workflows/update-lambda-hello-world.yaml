@@ -37,13 +37,14 @@ jobs:
          uses: aws-actions/amazon-ecr-login@v2
  
        - name: Build, tag, and push image to Amazon ECR
+         uses: docker/build-push-action@v5
          id: build-image
          env:
            ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
            IMAGE_TAG: ${{ github.sha }}
          run: |
            docker build -t hello-world .
-           docker tag hello-world:latest $IMAGE_URI:latest
+           docker tag hello-world:$IMAGE_TAG $IMAGE_URI:$IMAGE_TAG
            docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
            echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
          with:
