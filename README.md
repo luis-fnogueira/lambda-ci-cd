@@ -34,3 +34,9 @@ The steps for the pipeline are:
 - Login to ECR
 - Build, tag and push image to ECR
 - Update Lambda
+
+
+## Sources
+https://configu.com/blog/github-actions-environment-variables-uses-types-and-tutorial/
+https://github.com/aws-actions/amazon-ecr-login
+https://docs.aws.amazon.com/lambda/latest/dg/python-image.html
