@@ -51,7 +51,7 @@ jobs:
        - name: Update Lambda
          id: update-lambda
          run: |
-           aws update-function-code --function-name $FUNCTION_NAME --image-uri $IMAGE_URI
+           aws lambda update-function-code --function-name $FUNCTION_NAME --image-uri $IMAGE_URI
  
        
  
