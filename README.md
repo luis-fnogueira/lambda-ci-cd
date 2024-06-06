@@ -37,6 +37,6 @@ The steps for the pipeline are:
 
 
 ## Sources
-https://configu.com/blog/github-actions-environment-variables-uses-types-and-tutorial/
-https://github.com/aws-actions/amazon-ecr-login
-https://docs.aws.amazon.com/lambda/latest/dg/python-image.html
+- https://configu.com/blog/github-actions-environment-variables-uses-types-and-tutorial/
+- https://github.com/aws-actions/amazon-ecr-login
+- https://docs.aws.amazon.com/lambda/latest/dg/python-image.html
